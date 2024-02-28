@@ -15,7 +15,8 @@ console.log("-------------------------");
 console.log("Exc. 3");
 function insertToArray(arr, end, value) {
     if(![0,1].includes(end)) {
-        throw "Invalid end value: Must be 1 or 0 but given " + end;
+        console.error("Invalid end value: Must be 1 or 0 but given ");
+        return;
     }
     
     if(!end) {
