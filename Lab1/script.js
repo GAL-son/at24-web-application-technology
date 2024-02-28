@@ -30,18 +30,14 @@ function insertToArray(arr, end, value) {
 
 console.log(insertToArray(arr, 1, 3));
 console.log(insertToArray(arr, 0, 8));
-// console.log(insertToArray(arr, 2, 8)); // Should throw error
+console.log(insertToArray(arr, 2, 8)); // Should throw error
 console.log("-------------------------");
 
 // Exc. 4
 console.log("Exc. 4");
 function squareNumbers(numbers, sep = " ") {
     let arr = numbers.split(sep);
-    let result = ""
-    
-    arr.forEach((number, i) => {
-        result += (number*number).toString()+(i+1 >= arr.length ? "" : sep);
-    });
+    let result = arr.map(a => a*a).join(sep);
     
     return result;
 }
@@ -69,6 +65,7 @@ function randomItem(arr) {
 
 const students = ["Olek", "Janek", "Stefan", "Tymek", "Sławek"];
 console.log(randomItem(students));
+console.log(randomItem(students));
 console.log("-------------------------");
 
 // Exc. 7
@@ -79,7 +76,9 @@ function randomNumberTimeout(count, waitTime) {
     let timeout = setTimeout(() => {
         console.log(Math.floor(Math.random() * 10));
         randomNumberTimeout(count-1, waitTime);
+        clearTimeout(timeout);
     }, waitTime);
+
 }
 
 randomNumberTimeout(10, 500);
@@ -87,7 +86,12 @@ randomNumberTimeout(10, 500);
 function simulateServerConneciton(name) {
     setInterval(() => {console.log("Witaj "+name);}, 3000);
 }
-setTimeout(() => {
+
+let timeout = setTimeout(() => {
     simulateServerConneciton("Pawel")
 }, 5000);
+
+
+
+
 
