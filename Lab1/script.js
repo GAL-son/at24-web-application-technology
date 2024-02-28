@@ -26,3 +26,19 @@ console.log(insertToArray(arr, 1, 3));
 console.log(insertToArray(arr, 0, 8));
 // console.log(insertToArray(arr, 2, 8)); // Should throw error
 
+// Exc. 4
+function squareNumbers(numbers, sep = " ") {
+    let arr = numbers.split(sep);
+    let result = ""
+
+    arr.forEach((number, i) => {
+        result += (number*number).toString()+(i+1 >= arr.length ? "" : sep);
+    });
+
+    return result;
+}
+
+let numbers = "1.2.3.4.5.6.7.8.9";
+
+console.log(squareNumbers(numbers, '.'));
+
