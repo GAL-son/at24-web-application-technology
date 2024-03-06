@@ -66,7 +66,7 @@ footer {
     position: relative;
     height: 200px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .logo-js {
@@ -74,8 +74,6 @@ footer {
     background-size:cover; 
     width: 200px;
     height: 200px;
-    position: absolute;
-    left: 20vw;
 }
 
 
@@ -85,6 +83,4 @@ footer {
     background-size: cover;
     width: 200px;
     height: 200px;
-    position: absolute;
-    right: 20vw;
 }
