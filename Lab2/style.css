@@ -34,3 +34,14 @@ nav ul li a:hover {
     font-size: 36px;
     padding: 15px;
 }
+
+.background {
+    background-image: url("./bg.jpg");
+    height: 100%;
+ 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+ 
