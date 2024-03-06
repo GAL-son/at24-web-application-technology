@@ -26,13 +26,28 @@ const farenheitTemps = [0, 12, 32, 46, 73, 57, 98, 100, 114];
 
 console.log("CELCIUS TO FARENHEIT");
 celciusTemps.forEach(tempC => {
-    const tempF = Math.round(celciusToFarenheit(tempC)*10)/10
+    const tempF = Math.round(celciusToFarenheit(tempC)*10)/10;
     console.log(tempC + "C = " + tempF + "F");
 });
 
 console.log("FARENHEIT TO CELCIUS");
 farenheitTemps.forEach(tempF => {
-    const tempC = Math.round(farenheitToCelcius(tempF)*10)/10
+    const tempC = Math.round(farenheitToCelcius(tempF)*10)/10;
     console.log(tempF + "F = " + tempC + "C");
 });
 
+// Exc. 3
+console.log("---Exc. 3---");
+
+function sortNumbers(numbers, ascending=true) {
+    const asc = numbers.sort((a,b) => {return a-b});
+    return (ascending) ? asc : asc.reverse();
+}
+
+
+const numbers = [2,4,8,4,21,3,87,8,37,5,6];
+
+console.log("Unsorted: " + numbers);
+console.log("Sort (ascending = defalut): " + sortNumbers(numbers));
+console.log("Sort (ascending = false): " + sortNumbers(numbers, false));
+console.log("Sort (ascending = true): " + sortNumbers(numbers, true));
