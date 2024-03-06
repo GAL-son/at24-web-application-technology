@@ -2,11 +2,12 @@ body,
 html {
     height: 100%;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 .background {
     background-image: url("./bg.jpg");
-    height: 30%;
+    height: 50%;
 
     background-attachment: fixed;
     background-position: center;
@@ -15,7 +16,6 @@ html {
 }
 
 .text {
-    height: 50vh;
     background-color: #a1ffff54;
     font-size: 30px;
     padding: 15px;
@@ -28,6 +28,7 @@ nav {
     background-color: #fff;
     width: 100%;
     box-shadow: 5px 5px 5px black;
+    z-index: 200;
 }
 
 
@@ -61,6 +62,29 @@ footer {
     padding: 15px;
 }
 
-#przedmiot img {
-    height: 100px;
+.logo-wrapper {
+    position: relative;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-js {
+    background: url("./js.jpg");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 20vw;
+}
+
+
+
+.logo-html {
+    background: url("./html.png");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 20vw;
 }
