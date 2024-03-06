@@ -71,7 +71,7 @@ footer {
 
 .logo-js {
     background: url("./js.jpg");
-    background-size: cover;
+    background-size:cover; 
     width: 200px;
     height: 200px;
     position: absolute;
