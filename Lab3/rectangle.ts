@@ -62,11 +62,13 @@ let pc : Point = new Point(1,0);
 let pd : Point = new Point(1,1);
 
 let rect : Rectangle = new Rectangle(pa, pb, pc, pd);
+console.log("RECT POINTS");
 console.log(rect.points);
 
-console.log(rect.getArea());
+
+console.log("RECT AREA: " + rect.getArea());
 rect.move(2,2);
-console.log(rect.getArea());
+console.log("MOVED RECT AREA: " + rect.getArea());
 
 pa = new Point(0,1);
 pb = new Point(0,-1);
@@ -74,7 +76,9 @@ pc = new Point(1,0);
 pd = new Point(-1,0);
 
 rect = new Rectangle(pd,pa,pb,pc);
+console.log("RECT POINTS");
 console.log(rect.points);
-console.log(rect.getArea());
+
+console.log("RECT AREA: " +rect.getArea());
 rect.move(2,-1);
-console.log(rect.getArea());
+console.log("MOVED RECT AREA: " +rect.getArea());
