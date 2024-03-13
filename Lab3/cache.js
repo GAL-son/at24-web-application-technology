@@ -1,4 +1,3 @@
-// Exc. 5
 function linkCache(fn, cache) {
     return function (a, b) {
         var newKey = "$" + a + "_$" + b;
