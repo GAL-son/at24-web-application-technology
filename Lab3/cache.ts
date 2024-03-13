@@ -4,7 +4,7 @@ type CacheArr<T> = {
     [key: string]: T;
 };
 
-function linkCache<T>(fn: (a: T, b: T) => T, cache: CacheArr<T>) {
+function linkCache<T>(fn: (a: T, b: T) => T, cache: CacheArr<T>): (a: T, b: T) => T {
     return (a: T, b: T): T => {
         let newKey: string = "$" + a + "_$" + b;
 
@@ -13,9 +13,9 @@ function linkCache<T>(fn: (a: T, b: T) => T, cache: CacheArr<T>) {
             let result: T = fn(a, b);
             cache[newKey] = result;
         } else {
-            console.log("Result from cache", );
+            console.log("Result from cache",);
         }
-        
+
         return cache[newKey];
     }
 }
@@ -30,8 +30,8 @@ function add(a: number, b: number) {
 
 let cachedAdd = linkCache<number>(add, addCache);
 
-console.log(cachedAdd(1,2));
-console.log(cachedAdd(2,2));
-console.log(cachedAdd(1,2));
-console.log(cachedAdd(1,1));
+console.log(cachedAdd(1, 2));
+console.log(cachedAdd(2, 2));
+console.log(cachedAdd(1, 2));
+console.log(cachedAdd(1, 1));
 
