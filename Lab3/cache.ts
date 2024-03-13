@@ -22,16 +22,32 @@ function linkCache<T>(fn: (a: T, b: T) => T, cache: CacheArr<T>): (a: T, b: T) =
 
 // Testing
 
+// Add numbers
 let addCache: CacheArr<number> = {};
 
 function add(a: number, b: number) {
     return a + b;
 }
 
-let cachedAdd = linkCache<number>(add, addCache);
+let cachedAdd = linkCache(add, addCache);
 
 console.log(cachedAdd(1, 2));
 console.log(cachedAdd(2, 2));
 console.log(cachedAdd(1, 2));
 console.log(cachedAdd(1, 1));
+
+// Add strings (concatenation)
+let concatCache: CacheArr<string> = {};
+
+function concat(a: string, b: string) {
+    return a+b;
+}
+
+let cachedConcat = linkCache(concat, concatCache);
+
+console.log(cachedConcat("aaa", "bbb"));
+console.log(cachedConcat("aa", "bb"));
+console.log(cachedConcat("aaa", "bbb"));
+
+
 
