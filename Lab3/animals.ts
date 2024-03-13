@@ -1,3 +1,4 @@
+// Exc. 4
 class Animal {
     name: string;
 
@@ -30,3 +31,14 @@ class Dog extends Animal {
         return "Woof...";
     }
 }
+
+// Testing 
+let animals : Array<Animal> = [];
+
+animals.push(new Animal("Robert"));
+animals.push(new Dog("Rex"));
+animals.push(new Cat("Kenji"));
+
+animals.forEach(animal => {
+    console.log(animal.name + ": " + animal.makeSound());    
+});
