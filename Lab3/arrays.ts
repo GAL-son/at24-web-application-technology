@@ -6,4 +6,6 @@ function mergeArrays<T, U>(array1: Array<T>, array2: Array<U>) : Array<T|U> {
 let arr1 : Array<number> = [1,2,3];
 let arr2 : Array<string> = ["abc", "cde", "fgh"];
 
-console.log(mergeArrays(arr1, arr2));
+let merged : Array<number|string> = mergeArrays(arr1, arr2);
+
+console.log(merged);
