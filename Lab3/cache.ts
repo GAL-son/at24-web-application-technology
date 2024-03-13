@@ -1,5 +1,4 @@
 // Exc. 5
-
 type CacheArr<T> = {
     [key: string]: T;
 };
@@ -40,7 +39,7 @@ console.log(cachedAdd(1, 1));
 let concatCache: CacheArr<string> = {};
 
 function concat(a: string, b: string) {
-    return a+b;
+    return a + b;
 }
 
 let cachedConcat = linkCache(concat, concatCache);
