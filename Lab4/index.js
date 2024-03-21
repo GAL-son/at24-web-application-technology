@@ -1,6 +1,7 @@
 // Exc. 1
 const express = require('express');
 const questions = require('./questions').questions;
+const port = require('./config').port;
 
 const app = express();
 
@@ -9,7 +10,7 @@ app.get('/api/questions', (request, response) => {
 });
 
 
-app.listen(3000, () => {
-    console.info("Server is running at port 3000");
+app.listen(port, () => {
+    console.info("Server is running at port " + port);
 });
 
