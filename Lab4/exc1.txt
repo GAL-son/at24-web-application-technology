@@ -1,0 +1,2 @@
+Aplikacja uruchomiła podaną funkcję jako callback. 
+Funkcja została wywołana w momencie w którym na porcie 3000 zostało utworzone nowe połączenie.
