@@ -80,7 +80,9 @@
     <div class="background"></div>
 
     <section id="lab" class="text">
-        <h2></h2>
+        <h2>
+            <%= subject %>
+        </h2>
         Laboratorium 5. Na stronie powinny pojawić się 2 wykresy.
     </section>
 
@@ -104,6 +106,19 @@
     <footer>
         <p class="copy">Copyrights &copy; | 2024</p>
     </footer>
+
+    <script>
+
+        const chartConfig = '<%-chart1%>';
+
+        const config = JSON.parse(chartConfig);
+
+        const chart1 = new Chart(
+            document.getElementById('chart1'),
+            config
+        );
+    </script>
+
 
 </body>
 
