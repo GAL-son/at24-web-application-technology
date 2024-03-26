@@ -65,7 +65,6 @@
 </head>
 
 <body>
-
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -103,12 +102,31 @@
         </div>
 
     </section>
+
+    <!-- <div>
+        <table>
+            <tr>
+                <th>Nazwa produktu</th>
+                <th>Cena</th>
+            </tr>
+            <% JSON.parse(products).forEach(function(product) { %>
+                <tr>
+                    <td>
+                        <%= product.name %>
+                    </td>
+                    <td>
+                        <%= product.price %>
+                    </td>
+                </tr>
+                <% }); %>
+        </table>
+    </div> -->
+
     <footer>
         <p class="copy">Copyrights &copy; | 2024</p>
     </footer>
 
     <script>
-
         const chartConfig = '<%-chart1%>';
 
         const config = JSON.parse(chartConfig);
@@ -117,6 +135,42 @@
             document.getElementById('chart1'),
             config
         );
+    </script>
+
+    <script>
+        // pobranie danych z serwera
+        const chart2Config = '<%-chart2%>';
+
+        // pobranie referencji do miejsa wyświetlenia
+        const ctx = document.querySelector("#chart2").getContext('2d');
+
+        // sparsowanie danych otrzymanych z serwera w miejscu właściwości data 
+        const configChart2 = {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    data: JSON.parse(chart2Config),
+                    label: "Temperatura",
+                    borderColor: "#3e95cd",
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        distribution: 'linear',
+                    }]
+                },
+                legend: {
+                    display: false
+                }
+            }
+        };
+
+        // zbudowanie wykresu
+        new Chart(ctx, configChart2);
     </script>
 
 
