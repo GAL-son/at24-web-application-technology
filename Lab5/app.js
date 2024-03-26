@@ -3,8 +3,11 @@ const config = require('./config').config;
 
 const app = express();
 
+app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile);
+
 app.get('/', (request, response) => {
-    response.send("Server Działa");
+    response.render(__dirname + "/index.html", {});
 });
 
 app.listen(config.port, () => {
