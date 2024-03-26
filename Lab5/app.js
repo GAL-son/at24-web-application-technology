@@ -21,11 +21,11 @@ const temp = `Czas,Temperatura
 const dataChart2 = service.convertData(temp);
 const chart2 = JSON.stringify(dataChart2);
 
-// const products = [
-//     { name: 'Laptop', price: 1000 },
-//     { name: 'Smartphone', price: 500 },
-//     { name: 'Tablet', price: 300 }
-// ];
+const products = [
+    { name: 'Laptop', price: 1000 },
+    { name: 'Smartphone', price: 500 },
+    { name: 'Tablet', price: 300 }
+];
 
 app.get('/', (request, response) => {
     response.render(
