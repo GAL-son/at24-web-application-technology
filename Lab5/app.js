@@ -39,6 +39,44 @@ app.get('/', (request, response) => {
     );
 });
 
+app.get('/template/:variant/:a/:b', (request, response) => {
+    const {variant} = request.params;
+
+    const a = parseFloat(request.params.a);
+    const b = parseFloat(request.params.b);
+
+    let result;
+    switch (variant) {
+        case 'add':
+            result = a+b;
+            break;
+        case 'sub':
+            result = a-b;                
+            break;
+        case 'multiply':
+            result = a*b;                
+            break;
+        case 'divide':
+            if(b == 0) {
+                result = NaN;
+            } else {
+                result = a/b;
+            }
+            break;    
+        default:
+            response.status(404).render(__dirname + "/notFound.html", {
+                message: "Invalid operation"
+            });
+            break;
+
+    }
+       
+    response.render(__dirname + "/result.html", {
+        result: result,
+    })
+
+});
+
 
 app.listen(config.port, () => {
     console.info("Server is running at port 3000");
