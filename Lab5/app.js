@@ -56,11 +56,6 @@ app.get('/template/:variant/:a/:b', (request, response) => {
     const a = parseFloat(request.params.a);
     const b = parseFloat(request.params.b);
 
-    const add = a + b;
-    const sub = a - b;
-    const mul = a * b;
-    const div = (b == 0) ? NaN : (a / b);
-
     let result;
     let history;
     switch (variant) {
