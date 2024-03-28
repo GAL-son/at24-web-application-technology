@@ -27,6 +27,11 @@ const products = [
     { name: 'Tablet', price: 300 }
 ];
 
+let addHistory = [];
+let mulHistory = [];
+let divHistory = [];
+let subHistory = [];
+
 app.get('/', (request, response) => {
     response.render(
         __dirname + "/index.html",
@@ -40,39 +45,58 @@ app.get('/', (request, response) => {
 });
 
 app.get('/template/:variant/:a/:b', (request, response) => {
-    const {variant} = request.params;
+    const pushToHistory = (history, result) => {
+        history.push({
+            result: result,
+            time: Date.now()
+        });
+    }
+    const { variant } = request.params;
 
     const a = parseFloat(request.params.a);
     const b = parseFloat(request.params.b);
 
+    const add = a + b;
+    const sub = a - b;
+    const mul = a * b;
+    const div = (b == 0) ? NaN : (a / b);
+
     let result;
+    let history;
     switch (variant) {
         case 'add':
-            result = a+b;
+            result = a + b;
+            pushToHistory(addHistory, result);
+            history = addHistory;
             break;
         case 'sub':
-            result = a-b;                
+            result = a - b;
+            pushToHistory(subHistory, result);
+            history = subHistory;
             break;
         case 'multiply':
-            result = a*b;                
+            result = a * b;
+            pushToHistory(mulHistory, result);
+            history = mulHistory;
             break;
         case 'divide':
-            if(b == 0) {
-                result = NaN;
-            } else {
-                result = a/b;
-            }
-            break;    
+            result = (b == 0) ? NaN : (a / b);
+            pushToHistory(divHistory, result);
+            history = divHistory;
+            break;
         default:
             response.status(404).render(__dirname + "/notFound.html", {
                 message: "Invalid operation"
             });
             break;
-
     }
-       
+
     response.render(__dirname + "/result.html", {
+        a: a,
+        b: b,
+        variant: variant,
         result: result,
+        history: JSON.stringify(history),
     })
 
 });

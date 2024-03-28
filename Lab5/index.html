@@ -61,6 +61,10 @@
         .kontakt {
             padding: 15px;
         }
+
+        .text .table {
+            font-size: 12;
+        }
     </style>
 </head>
 
@@ -83,7 +87,28 @@
             <%= subject %>
         </h2>
         Laboratorium 5. Na stronie powinny pojawić się 2 wykresy.
+
+        
     </section>
+
+    <div class="table">
+        <table>
+            <tr>
+                <th>Nazwa produktu</th>
+                <th>Cena</th>
+            </tr>
+            <% JSON.parse(products).forEach(function(product) { %>
+                <tr>
+                    <td>
+                        <%= product.name %>
+                    </td>
+                    <td>
+                        <%= product.price %>
+                    </td>
+                </tr>
+                <% }); %>
+        </table>
+    </div>
 
     <section id="wykres1" class="other">
         <div>
@@ -103,24 +128,7 @@
 
     </section>
 
-    <div>
-        <table>
-            <tr>
-                <th>Nazwa produktu</th>
-                <th>Cena</th>
-            </tr>
-            <% JSON.parse(products).forEach(function(product) { %>
-                <tr>
-                    <td>
-                        <%= product.name %>
-                    </td>
-                    <td>
-                        <%= product.price %>
-                    </td>
-                </tr>
-                <% }); %>
-        </table>
-    </div>
+    
 
     <footer>
         <p class="copy">Copyrights &copy; | 2024</p>
@@ -140,6 +148,7 @@
     <script>
         // pobranie danych z serwera
         const chart2Config = '<%-chart2%>';
+        console.log(chart2Config);
 
         // pobranie referencji do miejsa wyświetlenia
         const ctx = document.querySelector("#chart2").getContext('2d');
